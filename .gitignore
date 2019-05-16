@@ -1,0 +1,10 @@
+Library/
+[Oo]bj/
+*.csproj
+*.sln
+*.user
+Temp/
+Recordings/
+.vs/
+.idea
+Assets/Plugins/Editor/JetBrains*
