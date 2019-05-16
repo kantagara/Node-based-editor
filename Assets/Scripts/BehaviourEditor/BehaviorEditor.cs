@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 
 public class BehaviorEditor : EditorWindow
-    {
+{
         #region Variables
         static List<BaseNode> windows = new List<BaseNode>();
         private Vector3 mousePosition;
@@ -75,6 +75,7 @@ public class BehaviorEditor : EditorWindow
         void RightClick(Event e)
         {
             selectedNode = null;
+            clickedOnAWindow = false;
             for (int i = 0; i < windows.Count; i++)
             {
                 if (windows[i].windowRect.Contains(e.mousePosition))
@@ -84,7 +85,6 @@ public class BehaviorEditor : EditorWindow
                     break;
                 }
             }
-
             if (!clickedOnAWindow)
             {
                 AddNewNode(e);
@@ -169,5 +169,25 @@ public class BehaviorEditor : EditorWindow
         
         #region Helper Methods
 
+        public static void DrawNodeCurve(Rect start, Rect end, bool left, Color curveColor)
+        {
+            var startPos = new Vector3
+            ( (left) ? start.x + start.width : start.x,
+                start.y + start.height * .5f,
+                0
+            );
+            var endPos = new Vector3(end.x + end.width * .5f, end.y + end.height * .5f, 0);
+            var startTan = startPos + Vector3.right * 50;
+            Vector3 endTan = endPos + Vector3.left * 50;
+
+            var shadow = new Color(0, 0, 0, 0.6f);
+
+            for (int i = 0; i < 3; i++)
+            {
+                Handles.DrawBezier(startPos, endPos, startTan, endTan, shadow, null, (i + 1) * .5f);
+            }
+            Handles.DrawBezier(startPos, endPos, startTan, endTan, curveColor, null, 1);
+
+        }
         #endregion
     }
