@@ -117,6 +117,9 @@ public class BehaviorEditor : EditorWindow
                 {
                     menu.AddSeparator("");
                     menu.AddItem(new GUIContent("Add Transition"),false, ContextCallback, UserActions.addTransitionNode );
+                    menu.AddSeparator("");
+                    menu.AddItem(new GUIContent("Add State"), false, ContextCallback, UserActions.addTransitionNode);
+                 
                 }
                 else
                 {
@@ -125,9 +128,9 @@ public class BehaviorEditor : EditorWindow
                 }
                 
                 menu.AddSeparator("");
-                menu.AddItem(new GUIContent("Add State"), false, ContextCallback, UserActions.addTransitionNode);
-                menu.AddSeparator("");
                 menu.AddItem(new GUIContent("Delete"), false, ContextCallback, UserActions.deletNode);
+                
+              
             }
             else if (selectedNode is CommentNode)
             {
@@ -220,6 +223,7 @@ public class BehaviorEditor : EditorWindow
             TransitionNode transitionNode = CreateInstance<TransitionNode>();
             transitionNode.Init(from, transition);
             
+            from.AddTransitionNode(transitionNode);            
             transitionNode.windowRect = new Rect(fromRect.x + 350, fromRect.y +(fromRect.height *.7f), 200, 80);
             transitionNode.windowTitle = "Condition Check";
             
