@@ -8,4 +8,11 @@ public class State : ScriptableObject
     {
         
     }
+
+    public Transition AddTransition()
+    {
+        Transition retVal = new Transition();
+        transitions.Add(retVal);
+        return retVal;
+    }
 }

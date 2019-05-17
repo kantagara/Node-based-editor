@@ -1,4 +1,7 @@
 
+using System;
+
+[Serializable]
 public class Transition
 {
     public Condition condition;

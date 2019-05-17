@@ -28,7 +28,7 @@ public class BehaviorEditor : EditorWindow
             editor.minSize = new Vector2(800, 600);
         }
         #endregion
-
+        
         #region GUI Methods
 
         private void OnGUI()
@@ -109,14 +109,32 @@ public class BehaviorEditor : EditorWindow
         {
             GenericMenu menu = new GenericMenu();
 
-            if (selectedNode is StateNode)  
+            if (selectedNode is StateNode)
             {
+                var stateNode = (StateNode) selectedNode;
+
+                if (stateNode.currentState != null)
+                {
+                    menu.AddSeparator("");
+                    menu.AddItem(new GUIContent("Add Transition"),false, ContextCallback, UserActions.addTransitionNode );
+                }
+                else
+                {
+                    menu.AddSeparator("");
+                    menu.AddDisabledItem(new GUIContent("Add Transition"));
+                }
+                
                 menu.AddSeparator("");
                 menu.AddItem(new GUIContent("Add State"), false, ContextCallback, UserActions.addTransitionNode);
                 menu.AddSeparator("");
                 menu.AddItem(new GUIContent("Delete"), false, ContextCallback, UserActions.deletNode);
             }
             else if (selectedNode is CommentNode)
+            {
+                menu.AddSeparator("");
+                menu.AddItem(new GUIContent("Delete"), false, ContextCallback, UserActions.deletNode);
+            }
+            else if (selectedNode is TransitionNode)
             {
                 menu.AddSeparator("");
                 menu.AddItem(new GUIContent("Delete"), false, ContextCallback, UserActions.deletNode);
@@ -147,12 +165,30 @@ public class BehaviorEditor : EditorWindow
                     windows.Add(commentNode);
                     break;
                 case UserActions.deletNode:
-                    if (selectedNode != null)
+                    if (selectedNode is StateNode)
                     {
-                        windows.Remove(selectedNode);
+                        var target = (StateNode) selectedNode;
+                        target.ClearReferences();
+                        windows.Remove(target);
                     }
+
+                    if (selectedNode is TransitionNode)
+                    {
+                        var target = (TransitionNode) selectedNode;
+                        windows.Remove(target);
+
+                        if (target.enterState.currentState.transitions.Contains(target.targetTransition))
+                            target.enterState.currentState.transitions.Remove(target.targetTransition);
+                    }
+
+                    if (selectedNode is CommentNode)
+                        windows.Remove(selectedNode);
                     break;
                 case UserActions.addTransitionNode:
+                    if(!(selectedNode is StateNode)) return;
+                    StateNode from = (StateNode) selectedNode;
+                    var transition = from.AddTransition();
+                    AddTransitionNode(from.currentState.transitions.Count, transition, from);
                     break;
                 default:
                     break;
@@ -169,6 +205,28 @@ public class BehaviorEditor : EditorWindow
         
         #region Helper Methods
 
+        public static TransitionNode AddTransitionNode(int index, Transition transition, StateNode from)
+        {
+            //from = State Node
+            Rect fromRect = from.windowRect;
+            float targetY = fromRect.y - fromRect.height;
+            
+            //Index will always be the number of  transition elements current state has 
+            //so that all the 
+            //in order to p
+            targetY += (index * 100);
+            
+            fromRect.y = targetY;
+            TransitionNode transitionNode = CreateInstance<TransitionNode>();
+            transitionNode.Init(from, transition);
+            
+            transitionNode.windowRect = new Rect(fromRect.x + 350, fromRect.y +(fromRect.height *.7f), 200, 80);
+            transitionNode.windowTitle = "Condition Check";
+            
+            windows.Add(transitionNode);
+            return transitionNode;
+        }
+        
         public static void DrawNodeCurve(Rect start, Rect end, bool left, Color curveColor)
         {
             var startPos = new Vector3
@@ -188,6 +246,14 @@ public class BehaviorEditor : EditorWindow
             }
             Handles.DrawBezier(startPos, endPos, startTan, endTan, curveColor, null, 1);
 
+        }
+
+        public static void ClearWindowsFromList(List<BaseNode> l)
+        {
+            for (int i = 0; i < l.Count; i++)
+            {
+                if (windows.Contains(l[i])) windows.Remove(l[i]);
+            }
         }
         #endregion
     }
