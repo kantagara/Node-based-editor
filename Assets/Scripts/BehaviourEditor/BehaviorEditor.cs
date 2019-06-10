@@ -12,6 +12,8 @@ public class BehaviorEditor : EditorWindow
         private bool clickedOnAWindow;
         private BaseNode selectedNode;
 
+        public static BehaviourGraph currentGraph;
+        
         public enum UserActions
         {
             addState, addTransitionNode, deletNode, commentNode
@@ -154,18 +156,10 @@ public class BehaviorEditor : EditorWindow
             switch (a)
             {
                 case UserActions.addState:
-                    var stateNode = new StateNode();
-                    stateNode.windowRect = new Rect(mousePosition.x, mousePosition.y, 200, 300);
-                    stateNode.windowTitle = "State";
-                    windows.Add(stateNode);
+                    AddStateNode(mousePosition);
                     break;
                 case UserActions.commentNode:
-                    CommentNode commentNode = new CommentNode()
-                    {
-                        windowRect = new Rect(mousePosition.x, mousePosition.y, 200, 100),
-                        windowTitle =  "Comment",
-                    };
-                    windows.Add(commentNode);
+                    AddCommentNode(mousePosition);
                     break;
                 case UserActions.deletNode:
                     if (selectedNode is StateNode)
@@ -208,6 +202,27 @@ public class BehaviorEditor : EditorWindow
         
         #region Helper Methods
 
+        public static StateNode AddStateNode(Vector2 pos)
+        {
+            var stateNode = CreateInstance<StateNode>();
+            stateNode.windowRect = new Rect(pos.x, pos.y, 200, 300);
+            stateNode.windowTitle = "State";
+            windows.Add(stateNode);
+
+            return stateNode;
+        }
+
+        public static CommentNode AddCommentNode(Vector2 pos)
+        {
+            var commentNode = CreateInstance<CommentNode>();
+            commentNode.windowRect = new Rect(pos.x, pos.y, 200, 100);
+            commentNode.windowTitle = "Comment";
+            windows.Add(commentNode);
+            return commentNode;
+        }
+        
+        
+
         public static TransitionNode AddTransitionNode(int index, Transition transition, StateNode from)
         {
             //from = State Node
@@ -219,15 +234,22 @@ public class BehaviorEditor : EditorWindow
             //in order to p
             targetY += (index * 100);
             
-            fromRect.y = targetY;
-            TransitionNode transitionNode = CreateInstance<TransitionNode>();
+            fromRect.y = targetY + fromRect.height * .7f;
+            fromRect.x += 350;
+       
+            return AddTransitionNode(new Vector2(fromRect.x, fromRect.y), transition, from);
+        }
+
+        public static TransitionNode AddTransitionNode(Vector2 pos, Transition transition, StateNode from)
+        {
+            var transitionNode = CreateInstance<TransitionNode>();
+
             transitionNode.Init(from, transition);
             
             from.AddTransitionNode(transitionNode);            
-            transitionNode.windowRect = new Rect(fromRect.x + 350, fromRect.y +(fromRect.height *.7f), 200, 80);
+            transitionNode.windowRect = new Rect(pos.x, pos.y, 200, 80);
             transitionNode.windowTitle = "Condition Check";
-            
-            windows.Add(transitionNode);
+
             return transitionNode;
         }
         

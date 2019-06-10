@@ -1,0 +1,214 @@
+fileFormatVersion: 2
+guid: a1ea836e379275947acbac987aa5c26d
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: mesh0
+    100004: mesh1
+    100006: mesh2
+    100008: mesh3
+    100010: mesh4
+    100012: mesh5
+    100014: mesh6
+    100016: mesh7
+    100018: ValveBiped.Bip01_Head1
+    100020: ValveBiped.Bip01_L_Calf
+    100022: ValveBiped.Bip01_L_Clavicle
+    100024: ValveBiped.Bip01_L_Finger0
+    100026: ValveBiped.Bip01_L_Finger1
+    100028: ValveBiped.Bip01_L_Finger2
+    100030: ValveBiped.Bip01_L_Foot
+    100032: ValveBiped.Bip01_L_Forearm
+    100034: ValveBiped.Bip01_L_Hand
+    100036: ValveBiped.Bip01_L_Thigh
+    100038: ValveBiped.Bip01_L_Toe0
+    100040: ValveBiped.Bip01_L_UpperArm
+    100042: ValveBiped.Bip01_Neck1
+    100044: ValveBiped.Bip01_Pelvis
+    100046: ValveBiped.Bip01_R_Calf
+    100048: ValveBiped.Bip01_R_Clavicle
+    100050: ValveBiped.Bip01_R_Finger0
+    100052: ValveBiped.Bip01_R_Finger1
+    100054: ValveBiped.Bip01_R_Finger2
+    100056: ValveBiped.Bip01_R_Foot
+    100058: ValveBiped.Bip01_R_Forearm
+    100060: ValveBiped.Bip01_R_Hand
+    100062: ValveBiped.Bip01_R_Thigh
+    100064: ValveBiped.Bip01_R_Toe0
+    100066: ValveBiped.Bip01_R_UpperArm
+    100068: ValveBiped.Bip01_Spine
+    100070: ValveBiped.Bip01_Spine1
+    100072: ValveBiped.Bip01_Spine2
+    100074: ValveBiped.Bip01_Spine4
+    100076: ValveBiped.Exp_Eyebrows
+    100078: ValveBiped.Exp_EyebrowsCorner
+    100080: ValveBiped.Exp_Eyelids_Lower
+    100082: ValveBiped.Exp_Eyelids_Upper
+    100084: ValveBiped.Exp_Jaw
+    100086: ValveBiped.Exp_LipsLCorner
+    100088: ValveBiped.Exp_LipsLower
+    100090: ValveBiped.Exp_LipsRCorner
+    100092: ValveBiped.Exp_LipsUpper
+    100094: ValveBiped.Exp_Nose
+    100096: ValveBiped.forward
+    400000: //RootNode
+    400002: mesh0
+    400004: mesh1
+    400006: mesh2
+    400008: mesh3
+    400010: mesh4
+    400012: mesh5
+    400014: mesh6
+    400016: mesh7
+    400018: ValveBiped.Bip01_Head1
+    400020: ValveBiped.Bip01_L_Calf
+    400022: ValveBiped.Bip01_L_Clavicle
+    400024: ValveBiped.Bip01_L_Finger0
+    400026: ValveBiped.Bip01_L_Finger1
+    400028: ValveBiped.Bip01_L_Finger2
+    400030: ValveBiped.Bip01_L_Foot
+    400032: ValveBiped.Bip01_L_Forearm
+    400034: ValveBiped.Bip01_L_Hand
+    400036: ValveBiped.Bip01_L_Thigh
+    400038: ValveBiped.Bip01_L_Toe0
+    400040: ValveBiped.Bip01_L_UpperArm
+    400042: ValveBiped.Bip01_Neck1
+    400044: ValveBiped.Bip01_Pelvis
+    400046: ValveBiped.Bip01_R_Calf
+    400048: ValveBiped.Bip01_R_Clavicle
+    400050: ValveBiped.Bip01_R_Finger0
+    400052: ValveBiped.Bip01_R_Finger1
+    400054: ValveBiped.Bip01_R_Finger2
+    400056: ValveBiped.Bip01_R_Foot
+    400058: ValveBiped.Bip01_R_Forearm
+    400060: ValveBiped.Bip01_R_Hand
+    400062: ValveBiped.Bip01_R_Thigh
+    400064: ValveBiped.Bip01_R_Toe0
+    400066: ValveBiped.Bip01_R_UpperArm
+    400068: ValveBiped.Bip01_Spine
+    400070: ValveBiped.Bip01_Spine1
+    400072: ValveBiped.Bip01_Spine2
+    400074: ValveBiped.Bip01_Spine4
+    400076: ValveBiped.Exp_Eyebrows
+    400078: ValveBiped.Exp_EyebrowsCorner
+    400080: ValveBiped.Exp_Eyelids_Lower
+    400082: ValveBiped.Exp_Eyelids_Upper
+    400084: ValveBiped.Exp_Jaw
+    400086: ValveBiped.Exp_LipsLCorner
+    400088: ValveBiped.Exp_LipsLower
+    400090: ValveBiped.Exp_LipsRCorner
+    400092: ValveBiped.Exp_LipsUpper
+    400094: ValveBiped.Exp_Nose
+    400096: ValveBiped.forward
+    2100000: Models_infected_common_law_enforcement_common_police_male_head_02
+    2100002: models_infected_common_common_male_asian_head_01
+    2100004: Models_infected_common_common_male_black_head_02
+    2100006: Models_infected_common_worker_common_worker_male_head_02
+    2100008: Models_infected_common_law_enforcement_common_police_male_head_03
+    2100010: common_head_DAM_01
+    2100012: common_military_upper_01
+    2100014: common_military_lower_01
+    4300000: mesh0
+    4300002: mesh1
+    4300004: mesh2
+    4300006: mesh3
+    4300008: mesh4
+    4300010: mesh5
+    4300012: mesh6
+    4300014: mesh7
+    9500000: //RootNode
+    13700000: mesh0
+    13700002: mesh1
+    13700004: mesh2
+    13700006: mesh3
+    13700008: mesh4
+    13700010: mesh5
+    13700012: mesh6
+    13700014: mesh7
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

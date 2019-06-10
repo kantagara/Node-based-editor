@@ -36,11 +36,13 @@ using UnityEngine;
             {
                 serializedState = null;
                 previousState = currentState;
+                /*
                 ClearReferences();
                 for (int i = 0; i < currentState.transitions.Count; i++)
                 {
                     dependencies.Add(BehaviorEditor.AddTransitionNode(i, currentState.transitions[i], this));
                 }
+               */
             }
 
             if (currentState != null)
